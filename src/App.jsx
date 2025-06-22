@@ -5,7 +5,7 @@ import "./styles.css";
 const SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/1Uj3fxh-rNGQDD9BP6KZyoJCzz_qxDZDG3O9o2fILSqo/export?format=csv";
 
-const DONATE_URL = "https://your-donate-link.com"; // Replace with your actual donate URL
+const DONATE_URL = "https://buymeacoffee.com/ghazalextensionproject"; // Replace with your actual donate URL
 
 function cleanText(text) {
   return (text || "").replace(/\\n/g, "\n").trim();
@@ -130,7 +130,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Donate
+          Support us
         </a>
       </div>
 
