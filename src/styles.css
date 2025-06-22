@@ -1,0 +1,164 @@
+:root {
+    --bg: #fafafa;
+    --fg: #222;
+    --muted: #888;
+    --accent: #111;
+    --border: #e0e0e0;
+    --button-bg: #fff;
+    --button-fg: #222;
+    --button-hover: #f0f0f0;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Fira Code', 'Georgia', serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem 0 1rem;
+  }
+  
+  .poetry-block {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    max-width: 480px;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
+  }
+  
+  .prompt {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    line-height: 1.4;
+  }
+  
+  .prompt-poet {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-align: right;
+    margin-bottom: 1.2rem;
+  }
+  
+  .extension {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    line-height: 1.5;
+  }
+  
+  .extension-author {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+  
+  .btn {
+    background: var(--button-bg);
+    color: var(--button-fg);
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s, border 0.15s;
+    outline: none;
+  }
+  
+  .btn:hover, .btn:focus {
+    background: var(--button-hover);
+    border-color: var(--muted);
+  }
+  
+  .donate-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0 1.5rem 0;
+  }
+  
+  .donate-btn {
+    background: #fff;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+  }
+  
+  .donate-btn:hover, .donate-btn:focus {
+    background: var(--accent);
+    color: #fff;
+  }
+  
+  .report-link {
+    display: block;
+    margin: 0.5rem auto 0 auto;
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-align: center;
+    text-decoration: underline dotted;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.97rem;
+    margin-bottom: 0.6rem;
+    margin-top: 0.7rem;
+  }
+  
+  @media (max-width: 600px) {
+    .main-container {
+      padding: 1rem 0.3rem 0 0.3rem;
+    }
+    .poetry-block {
+      padding: 1.1rem 0.7rem 0.7rem 0.7rem;
+      max-width: 98vw;
+    }
+    .button-row {
+      gap: 0.6rem;
+    }
+    .donate-container {
+      margin: 1.5rem 0 1rem 0;
+    }
+  }
