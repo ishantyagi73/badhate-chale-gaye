@@ -115,124 +115,130 @@ function App() {
   const current = entries[index] || {};
 
   return (
-    <div className="main-container">
-      <div className="poetry-block" aria-live="polite">
-        {loading ? (
-          <div style={{ textAlign: "center", color: "#aaa" }}>Loading…</div>
-        ) : error ? (
-          <div style={{ color: "#c00" }}>{error}</div>
-        ) : (
-          <>
-            <div className="prompt" style={{ whiteSpace: "pre-line" }}>
-              {cleanText(current.Prompt)}
-            </div>
-            <div className="prompt-poet">
-              {current["Prompt Poet"]}
-            </div>
-            <div className="extension" style={{ whiteSpace: "pre-line" }}>
-              {cleanText(current.Extension)}
-            </div>
-            <div className="extension-author">
-              {current["Extension Author"]}
-            </div>
-          </>
-        )}
+    <><div className="landing-header">
+      <div className="landing-title">
+        बढ़ाते चले गये
       </div>
-
-      <div className="button-row">
-        <button
-          className="btn"
-          onClick={handleLike}
-          aria-pressed={!!liked[index]}
-          title="Like this poem"
-        >
-          {liked[index] ? "♥ Liked" : "♡ Like"}
-        </button>
-        <button className="btn" onClick={handlePrev} disabled={loading || !entries.length}>
-          Previous
-        </button>
-        <button className="btn" onClick={handleNext} disabled={loading || !entries.length}>
-          Next
-        </button>
-        <button className="btn" onClick={handleRandom} disabled={loading || entries.length < 2}>
-          Random
-        </button>
+      <div className="landing-summary">
+        Continuing with the tradition of <b>तरह (tarah)</b>, we try to extend the rhythms of classic ghazals in our own words. Conveying modern perspectives and worldview. The finishing rhyme (<b>qafiya + radif</b>) from the prompt (<b>matla</b>) is preserved and repeated in the second line of every extension. Enjoy
       </div>
-
-      {/* Enhanced Report Link/Button */}
-      <button
-        className="report-link"
-        onClick={handleReportOpen}
-        type="button"
-        aria-haspopup="dialog"
-      >
-        Report Tough Words
-      </button>
-
-      {/* Modal Popup */}
-      {reportModalOpen && (
-        <div className="modal-overlay" onClick={handleReportClose}>
-          <div
-            className="modal"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="report-modal-title"
-          >
-            {!reportThankYou ? (
-              <>
-                <div className="modal-title" id="report-modal-title">
-                  Report Tough Words
-                </div>
-                <form onSubmit={handleReportSubmit}>
-                  <input
-                    className="modal-input"
-                    type="text"
-                    value={reportInput}
-                    onChange={handleReportInput}
-                    placeholder="e.g. ranjish, hasrat, maazi..etc"
-                    disabled={reportLoading}
-                    autoFocus
-                  />
-                  <button
-                    className="modal-submit-btn"
-                    type="submit"
-                    disabled={reportLoading || !reportInput.trim()}
-                  >
-                    {reportLoading ? "Submitting..." : "Submit"}
-                  </button>
-                  <button
-                    className="modal-cancel-btn"
-                    type="button"
-                    onClick={handleReportClose}
-                    disabled={reportLoading}
-                  >
-                    Cancel
-                  </button>
-                </form>
-              </>
-            ) : (
-              <div className="modal-thankyou">Thank you for your feedback!</div>
-            )}
-          </div>
+    </div><div className="main-container">
+        <div className="poetry-block" aria-live="polite">
+          {loading ? (
+            <div style={{ textAlign: "center", color: "#aaa" }}>Loading…</div>
+          ) : error ? (
+            <div style={{ color: "#c00" }}>{error}</div>
+          ) : (
+            <>
+              <div className="prompt" style={{ whiteSpace: "pre-line" }}>
+                {cleanText(current.Prompt)}
+              </div>
+              <div className="prompt-poet">
+                {current["Prompt Poet"]}
+              </div>
+              <div className="extension" style={{ whiteSpace: "pre-line" }}>
+                {cleanText(current.Extension)}
+              </div>
+              <div className="extension-author">
+                {current["Extension Author"]}
+              </div>
+            </>
+          )}
         </div>
-      )}
 
-      <div className="donate-container">
-        <a
-          className="donate-btn"
-          href={DONATE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="button-row">
+          <button
+            className="btn"
+            onClick={handleLike}
+            aria-pressed={!!liked[index]}
+            title="Like this poem"
+          >
+            {liked[index] ? "♥ Liked" : "♡ Like"}
+          </button>
+          <button className="btn" onClick={handlePrev} disabled={loading || !entries.length}>
+            Previous
+          </button>
+          <button className="btn" onClick={handleNext} disabled={loading || !entries.length}>
+            Next
+          </button>
+          <button className="btn" onClick={handleRandom} disabled={loading || entries.length < 2}>
+            Random
+          </button>
+        </div>
+
+        {/* Enhanced Report Link/Button */}
+        <button
+          className="report-link"
+          onClick={handleReportOpen}
+          type="button"
+          aria-haspopup="dialog"
         >
-          Support us
-        </a>
-      </div>
+          Report Tough Words
+        </button>
 
-      <div className="footer">
-        A crowdsourced anthology of poetic extensions
-      </div>
-    </div>
+        {/* Modal Popup */}
+        {reportModalOpen && (
+          <div className="modal-overlay" onClick={handleReportClose}>
+            <div
+              className="modal"
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="report-modal-title"
+            >
+              {!reportThankYou ? (
+                <>
+                  <div className="modal-title" id="report-modal-title">
+                    Report Tough Words
+                  </div>
+                  <form onSubmit={handleReportSubmit}>
+                    <input
+                      className="modal-input"
+                      type="text"
+                      value={reportInput}
+                      onChange={handleReportInput}
+                      placeholder="e.g. ranjish, hasrat, maazi..etc"
+                      disabled={reportLoading}
+                      autoFocus />
+                    <button
+                      className="modal-submit-btn"
+                      type="submit"
+                      disabled={reportLoading || !reportInput.trim()}
+                    >
+                      {reportLoading ? "Submitting..." : "Submit"}
+                    </button>
+                    <button
+                      className="modal-cancel-btn"
+                      type="button"
+                      onClick={handleReportClose}
+                      disabled={reportLoading}
+                    >
+                      Cancel
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="modal-thankyou">Thank you for your feedback!</div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="donate-container">
+          <a
+            className="donate-btn"
+            href={DONATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Support us
+          </a>
+        </div>
+
+        <div className="footer">
+          A crowdsourced anthology of poetic extensions
+        </div>
+      </div></>
   );
 }
 
