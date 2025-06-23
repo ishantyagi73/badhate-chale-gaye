@@ -4,8 +4,9 @@ import "./styles.css";
 
 const SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/1Uj3fxh-rNGQDD9BP6KZyoJCzz_qxDZDG3O9o2fILSqo/export?format=csv";
-
-const DONATE_URL = "https://buymeacoffee.com/ghazalextensionproject"; // Replace with your actual donate URL
+const DONATE_URL = "https://buymeacoffee.com/ghazalextensionproject";
+const REPORT_URL =
+  "https://script.google.com/macros/s/AKfycbyZEJIoSQEXZUiE6lyUwipzg5G1sfLX1aoo0Z0QiAG8BlyTUBOEqpDew4YFWfp_bFiF/exec";
 
 function cleanText(text) {
   return (text || "").replace(/\\n/g, "\n").trim();
@@ -18,6 +19,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Modal state for reporting tough words
+  const [reportModalOpen, setReportModalOpen] = useState(false);
+  const [reportInput, setReportInput] = useState("");
+  const [reportLoading, setReportLoading] = useState(false);
+  const [reportThankYou, setReportThankYou] = useState(false);
+
   // Fetch and parse CSV
   useEffect(() => {
     setLoading(true);
@@ -29,7 +36,7 @@ function App() {
         setEntries(results.data);
         setLoading(false);
       },
-      error: (err) => {
+      error: () => {
         setError("Could not load poetry data.");
         setLoading(false);
       },
@@ -64,6 +71,47 @@ function App() {
     setIndex(rand);
   };
 
+  // Report Tough Words modal handlers
+  const handleReportOpen = () => {
+    setReportModalOpen(true);
+    setReportInput("");
+    setReportThankYou(false);
+  };
+
+  const handleReportClose = () => {
+    setReportModalOpen(false);
+    setReportInput("");
+    setReportThankYou(false);
+    setReportLoading(false);
+  };
+
+  const handleReportInput = (e) => {
+    setReportInput(e.target.value);
+  };
+
+  const handleReportSubmit = async (e) => {
+    e.preventDefault();
+    if (!reportInput.trim()) return;
+    setReportLoading(true);
+    try {
+      await fetch(REPORT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          promptIndex: index,
+          words: reportInput.trim(),
+        }),
+      });
+      setReportThankYou(true);
+      setTimeout(() => {
+        handleReportClose();
+      }, 1200);
+    } catch (err) {
+      alert("Could not submit report. Please try again later.");
+      setReportLoading(false);
+    }
+  };
+
   const current = entries[index] || {};
 
   return (
@@ -76,8 +124,8 @@ function App() {
         ) : (
           <>
             <div className="prompt" style={{ whiteSpace: "pre-line" }}>
-  {cleanText(current.Prompt)}
-</div>
+              {cleanText(current.Prompt)}
+            </div>
             <div className="prompt-poet">
               {current["Prompt Poet"]}
             </div>
@@ -111,17 +159,64 @@ function App() {
         </button>
       </div>
 
-      {/* Optional: Report link */}
-      <a
-        href="#"
+      {/* Enhanced Report Link/Button */}
+      <button
         className="report-link"
-        onClick={(e) => {
-          e.preventDefault();
-          window.alert("Thank you for your feedback! (Reporting not yet implemented.)");
-        }}
+        onClick={handleReportOpen}
+        type="button"
+        aria-haspopup="dialog"
       >
         Report Tough Words
-      </a>
+      </button>
+
+      {/* Modal Popup */}
+      {reportModalOpen && (
+        <div className="modal-overlay" onClick={handleReportClose}>
+          <div
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="report-modal-title"
+          >
+            {!reportThankYou ? (
+              <>
+                <div className="modal-title" id="report-modal-title">
+                  Report Tough Words
+                </div>
+                <form onSubmit={handleReportSubmit}>
+                  <input
+                    className="modal-input"
+                    type="text"
+                    value={reportInput}
+                    onChange={handleReportInput}
+                    placeholder="e.g. ranjish, hasrat, maazi..etc"
+                    disabled={reportLoading}
+                    autoFocus
+                  />
+                  <button
+                    className="modal-submit-btn"
+                    type="submit"
+                    disabled={reportLoading || !reportInput.trim()}
+                  >
+                    {reportLoading ? "Submitting..." : "Submit"}
+                  </button>
+                  <button
+                    className="modal-cancel-btn"
+                    type="button"
+                    onClick={handleReportClose}
+                    disabled={reportLoading}
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="modal-thankyou">Thank you for your feedback!</div>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="donate-container">
         <a
