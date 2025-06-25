@@ -25,6 +25,12 @@ function App() {
   const [reportLoading, setReportLoading] = useState(false);
   const [reportThankYou, setReportThankYou] = useState(false);
 
+  // User extension submission state
+  const [userExtension, setUserExtension] = useState("");
+  const [userExtensionLoading, setUserExtensionLoading] = useState(false);
+  const [userExtensionSuccess, setUserExtensionSuccess] = useState(false);
+  const [userExtensionError, setUserExtensionError] = useState(false);
+
   // Fetch and parse CSV
   useEffect(() => {
     setLoading(true);
@@ -114,6 +120,37 @@ function App() {
 
   const current = entries[index] || {};
 
+  async function handleExtensionSubmit() {
+    setUserExtensionLoading(true);
+    setUserExtensionSuccess(false);
+    setUserExtensionError(false);
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbw3_6slE4KN12f67TM-OO6RMwBaEc9_8PA1nfJ-kYYRLRkXmjF3YzYhpETBwr1uR2ja/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "submitExtension",
+            promptIndex: index,
+            extension: userExtension.trim(),
+          }),
+        },
+      );
+      if (res.ok) {
+        setUserExtension("");
+        setUserExtensionSuccess(true);
+      } else {
+        setUserExtensionError(true);
+      }
+    } catch {
+      setUserExtensionError(true);
+    } finally {
+      setUserExtensionLoading(false);
+      setTimeout(() => setUserExtensionSuccess(false), 4000);
+    }
+  }
+
   return (
     <>
       <div className="landing-header">
@@ -148,16 +185,45 @@ function App() {
           )}
         </div>
         {current["Rhyme Scheme"] && (
-  <div className="rhyme-scheme-block">
-    <div className="rhyme-scheme-title">Rhyme Scheme</div>
-    <div
-      className="rhyme-scheme-value"
-      style={{ whiteSpace: "pre-line" }}
-    >
-      {cleanText(current["Rhyme Scheme"])}
-    </div>
-  </div>
-)}
+          <div className="rhyme-scheme-block">
+            <div className="rhyme-scheme-title">Rhyme Scheme</div>
+            <div
+              className="rhyme-scheme-value"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {cleanText(current["Rhyme Scheme"])}
+            </div>
+          </div>
+        )}
+
+        <div className="user-extension-block">
+          <div className="user-extension-title">Write Your Own Extension</div>
+          <textarea
+            className="user-extension-input"
+            rows={4}
+            placeholder="Your poetic response…"
+            value={userExtension}
+            onChange={(e) => setUserExtension(e.target.value)}
+            disabled={userExtensionLoading}
+          />
+          <button
+            className="user-extension-submit"
+            onClick={handleExtensionSubmit}
+            disabled={userExtensionLoading || !userExtension.trim()}
+          >
+            Submit Extension
+          </button>
+          {userExtensionSuccess && (
+            <div className="user-extension-success">
+              Thanks! Your extension has been submitted for review.
+            </div>
+          )}
+          {userExtensionError && (
+            <div className="user-extension-error">
+              Could not submit extension. Please try again.
+            </div>
+          )}
+        </div>
 
         <div className="button-row">
           <button

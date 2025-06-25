@@ -172,6 +172,79 @@
     }
   }
 
+  .user-extension-block {
+    background: #fafafa;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0.7rem auto 1.5rem auto;
+    padding: 1.1rem 1.5rem;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-extension-title {
+    font-size: 1.08rem;
+    color: #888;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+  }
+  .user-extension-input {
+    width: 100%;
+    min-height: 3.5em;
+    font-size: 1rem;
+    padding: 0.7em;
+    border-radius: 7px;
+    border: 1px solid #d0d0d0;
+    margin-bottom: 0.7em;
+    resize: vertical;
+    font-family: inherit;
+    background: #fff;
+  }
+  .user-extension-submit {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.55em 1.2em;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 0.6em;
+    transition: background 0.2s;
+  }
+  .user-extension-submit:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+  }
+  .user-extension-success {
+    color: #2a8a2a;
+    font-size: 0.97rem;
+    margin-top: 0.3em;
+  }
+  .user-extension-error {
+    color: #c00;
+    font-size: 0.97rem;
+    margin-top: 0.3em;
+  }
+  @media (max-width: 600px) {
+    .user-extension-block {
+      max-width: 98vw;
+      font-size: 0.93rem;
+      padding: 0.8rem 0.7rem;
+    }
+    .user-extension-title {
+      font-size: 1rem;
+    }
+    .user-extension-input {
+      font-size: 0.93rem;
+    }
+  }
+
   .button-row {
     display: flex;
     justify-content: center;
