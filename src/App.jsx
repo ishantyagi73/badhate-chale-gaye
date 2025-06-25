@@ -115,14 +115,18 @@ function App() {
   const current = entries[index] || {};
 
   return (
-    <><div className="landing-header">
-      <div className="landing-title">
-        बढ़ाते चले गये
+    <>
+      <div className="landing-header">
+        <div className="landing-title">बढ़ाते चले गये</div>
+        <div className="landing-summary">
+          Continuing with the tradition of <b>तरह (tarah)</b>, we try to extend
+          the rhythms of classic ghazals in our own words. Conveying modern
+          perspectives and worldview. The finishing rhyme (<b>qafiya + radif</b>
+          ) from the prompt (<b>matla</b>) is preserved and repeated in the
+          second line of every extension. Enjoy
+        </div>
       </div>
-      <div className="landing-summary">
-        Continuing with the tradition of <b>तरह (tarah)</b>, we try to extend the rhythms of classic ghazals in our own words. Conveying modern perspectives and worldview. The finishing rhyme (<b>qafiya + radif</b>) from the prompt (<b>matla</b>) is preserved and repeated in the second line of every extension. Enjoy
-      </div>
-    </div><div className="main-container">
+      <div className="main-container">
         <div className="poetry-block" aria-live="polite">
           {loading ? (
             <div style={{ textAlign: "center", color: "#aaa" }}>Loading…</div>
@@ -133,9 +137,7 @@ function App() {
               <div className="prompt" style={{ whiteSpace: "pre-line" }}>
                 {cleanText(current.Prompt)}
               </div>
-              <div className="prompt-poet">
-                {current["Prompt Poet"]}
-              </div>
+              <div className="prompt-poet">{current["Prompt Poet"]}</div>
               <div className="extension" style={{ whiteSpace: "pre-line" }}>
                 {cleanText(current.Extension)}
               </div>
@@ -145,6 +147,14 @@ function App() {
             </>
           )}
         </div>
+        {current["Rhyme Scheme"] && (
+          <div className="rhyme-scheme-block">
+            <span className="rhyme-scheme-label">Rhyme Scheme:</span>
+            <span className="rhyme-scheme-value">
+              {current["Rhyme Scheme"]}
+            </span>
+          </div>
+        )}
 
         <div className="button-row">
           <button
@@ -155,13 +165,25 @@ function App() {
           >
             {liked[index] ? "♥ Liked" : "♡ Like"}
           </button>
-          <button className="btn" onClick={handlePrev} disabled={loading || !entries.length}>
+          <button
+            className="btn"
+            onClick={handlePrev}
+            disabled={loading || !entries.length}
+          >
             Previous
           </button>
-          <button className="btn" onClick={handleNext} disabled={loading || !entries.length}>
+          <button
+            className="btn"
+            onClick={handleNext}
+            disabled={loading || !entries.length}
+          >
             Next
           </button>
-          <button className="btn" onClick={handleRandom} disabled={loading || entries.length < 2}>
+          <button
+            className="btn"
+            onClick={handleRandom}
+            disabled={loading || entries.length < 2}
+          >
             Random
           </button>
         </div>
@@ -199,7 +221,8 @@ function App() {
                       onChange={handleReportInput}
                       placeholder="e.g. ranjish, hasrat, maazi..etc"
                       disabled={reportLoading}
-                      autoFocus />
+                      autoFocus
+                    />
                     <button
                       className="modal-submit-btn"
                       type="submit"
@@ -218,7 +241,9 @@ function App() {
                   </form>
                 </>
               ) : (
-                <div className="modal-thankyou">Thank you for your feedback!</div>
+                <div className="modal-thankyou">
+                  Thank you for your feedback!
+                </div>
               )}
             </div>
           </div>
@@ -238,7 +263,8 @@ function App() {
         <div className="footer">
           A crowdsourced anthology of poetic extensions
         </div>
-      </div></>
+      </div>
+    </>
   );
 }
 
