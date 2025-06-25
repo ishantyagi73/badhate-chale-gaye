@@ -137,24 +137,25 @@
     margin: 0.7rem auto 1.5rem auto;
     padding: 1.1rem 1.5rem;
     box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
-    font-size: 0.99rem;
-    color: #888;
-    font-style: italic;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-align: left;
+    text-align: center;
   }
   
-  .rhyme-scheme-label {
-    font-weight: 500;
-    color: #999;
+  .rhyme-scheme-title {
+    font-size: 1.08rem;
+    color: #888;
     font-style: italic;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
   }
   
   .rhyme-scheme-value {
     color: #666;
+    font-size: 0.99rem;
     font-style: normal;
+    white-space: pre-line;
+    text-align: center;
+    word-break: break-word;
   }
   
   @media (max-width: 600px) {
@@ -162,6 +163,12 @@
       max-width: 98vw;
       font-size: 0.93rem;
       padding: 0.8rem 0.7rem;
+    }
+    .rhyme-scheme-title {
+      font-size: 1rem;
+    }
+    .rhyme-scheme-value {
+      font-size: 0.93rem;
     }
   }
 

@@ -148,13 +148,16 @@ function App() {
           )}
         </div>
         {current["Rhyme Scheme"] && (
-          <div className="rhyme-scheme-block">
-            <span className="rhyme-scheme-label">Rhyme Scheme:</span>
-            <span className="rhyme-scheme-value">
-              {current["Rhyme Scheme"]}
-            </span>
-          </div>
-        )}
+  <div className="rhyme-scheme-block">
+    <div className="rhyme-scheme-title">Rhyme Scheme</div>
+    <div
+      className="rhyme-scheme-value"
+      style={{ whiteSpace: "pre-line" }}
+    >
+      {cleanText(current["Rhyme Scheme"])}
+    </div>
+  </div>
+)}
 
         <div className="button-row">
           <button
