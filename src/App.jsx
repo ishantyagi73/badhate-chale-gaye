@@ -130,7 +130,7 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "submitExtension",
-          promptIndex: index,
+          promptIndex: current["Prompt ID"], // <-- USE Prompt ID, not index
           extension: userExtension.trim(),
         }),
       });
