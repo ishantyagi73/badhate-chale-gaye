@@ -125,18 +125,15 @@ function App() {
     setUserExtensionSuccess(false);
     setUserExtensionError(false);
     try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbw3_6slE4KN12f67TM-OO6RMwBaEc9_8PA1nfJ-kYYRLRkXmjF3YzYhpETBwr1uR2ja/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "submitExtension",
-            promptIndex: index,
-            extension: userExtension.trim(),
-          }),
-        },
-      );
+      const res = await fetch("/api/submit-extension", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "submitExtension",
+          promptIndex: index,
+          extension: userExtension.trim(),
+        }),
+      });
       if (res.ok) {
         setUserExtension("");
         setUserExtensionSuccess(true);
@@ -150,7 +147,6 @@ function App() {
       setTimeout(() => setUserExtensionSuccess(false), 4000);
     }
   }
-
   return (
     <>
       <div className="landing-header">
