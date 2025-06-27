@@ -13,6 +13,7 @@ function cleanText(text) {
 }
 
 function App() {
+  console.log("App component loaded");
   const [entries, setEntries] = useState([]);
   const [index, setIndex] = useState(0);
   const [liked, setLiked] = useState({});
