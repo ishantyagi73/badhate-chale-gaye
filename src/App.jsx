@@ -41,6 +41,10 @@ function App() {
       complete: (results) => {
         setEntries(results.data);
         setLoading(false);
+        console.log(
+          "Prompt IDs from CSV:",
+          results.data.map((row, i) => ({ row: i, promptId: row["Prompt ID"] }))
+        );
       },
       error: () => {
         setError("Could not load poetry data.");
