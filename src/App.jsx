@@ -110,7 +110,7 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "reportToughWords",
-          promptIndex: current["Prompt ID"], // or current["Prompt ID"]
+          promptId: current["Prompt ID"], // or current["Prompt ID"]
           words: reportInput.trim(),
         }),
       });
@@ -141,7 +141,7 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "submitExtension",
-          promptIndex: current["Prompt ID"],
+          promptId: current["Prompt ID"],
           extension: userExtension.trim(),
         }),
       });
