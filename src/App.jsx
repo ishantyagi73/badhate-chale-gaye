@@ -109,9 +109,11 @@ function App() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          promptIndex: 999,  // Hardcoded value
+          action: "reportToughWords",       // 💥 Add this
+          promptIndex: index,
           words: reportInput.trim(),
         }),
+        
         
       });
       setReportThankYou(true);
