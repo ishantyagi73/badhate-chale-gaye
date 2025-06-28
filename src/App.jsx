@@ -105,27 +105,29 @@ function App() {
     if (!reportInput.trim()) return;
     setReportLoading(true);
     try {
-      await fetch(REPORT_URL, {
+      const res = await fetch("https://badhate-chale-gaye.vercel.app/api/report-tough-words", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          action: "reportToughWords",       // 💥 Add this
-          promptIndex: index,
+          action: "reportToughWords",
+          promptIndex: index, // or current["Prompt ID"]
           words: reportInput.trim(),
         }),
-        
-        
       });
-      setReportThankYou(true);
-      setTimeout(() => {
-        handleReportClose();
-      }, 1200);
+      if (res.ok) {
+        setReportThankYou(true);
+        setTimeout(() => {
+          handleReportClose();
+        }, 1200);
+      } else {
+        alert("Could not submit report. Please try again later.");
+        setReportLoading(false);
+      }
     } catch (err) {
       alert("Could not submit report. Please try again later.");
       setReportLoading(false);
     }
   };
-
   const current = entries[index] || {};
 
   async function handleExtensionSubmit() {
