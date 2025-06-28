@@ -109,9 +109,10 @@ function App() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          promptIndex: index,
+          promptIndex: 999,  // Hardcoded value
           words: reportInput.trim(),
         }),
+        
       });
       setReportThankYou(true);
       setTimeout(() => {
