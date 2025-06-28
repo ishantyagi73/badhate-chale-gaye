@@ -105,6 +105,12 @@ function App() {
     if (!reportInput.trim()) return;
     setReportLoading(true);
     try {
+      console.log("Payload about to send (report):", {
+        action: "reportToughWords",
+        promptIndex: current["Prompt ID"],
+        words: reportInput.trim(),
+      });
+      
       const res = await fetch("https://badhate-chale-gaye.vercel.app/api/report-tough-words", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -136,6 +142,12 @@ function App() {
     setUserExtensionSuccess(false);
     setUserExtensionError(false);
     try {
+      console.log("Payload about to send (extension):", {
+        action: "submitExtension",
+        promptIndex: current["Prompt ID"],
+        extension: userExtension.trim(),
+      });
+      
       const res = await fetch("https://badhate-chale-gaye.vercel.app/api/submit-extension", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
