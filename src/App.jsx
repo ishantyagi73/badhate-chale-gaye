@@ -107,7 +107,7 @@ function App() {
     try {
       console.log("Payload about to send (report):", {
         action: "reportToughWords",
-        promptIndex: current["Prompt ID"],
+        promptId: current["Prompt ID"],
         words: reportInput.trim(),
       });
       
@@ -144,7 +144,7 @@ function App() {
     try {
       console.log("Payload about to send (extension):", {
         action: "submitExtension",
-        promptIndex: current["Prompt ID"],
+        promptId: current["Prompt ID"],
         extension: userExtension.trim(),
       });
       
