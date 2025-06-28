@@ -136,7 +136,6 @@ function App() {
     setUserExtensionSuccess(false);
     setUserExtensionError(false);
     try {
-      console.log("📦 Submitting Extension Payload:", payload);
       const res = await fetch("https://badhate-chale-gaye.vercel.app/api/submit-extension", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
