@@ -105,7 +105,7 @@ function App() {
     if (!reportInput.trim()) return;
     setReportLoading(true);
     try {
-      const res = await fetch("/api/report-tough-words", {
+      const res = await fetch("https://badhate-chale-gaye.vercel.app/api/report-tough-words", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
