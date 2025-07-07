@@ -114,6 +114,15 @@ body {
   opacity: 0.8;
 }
 
+/* Center the navigation buttons row */
+.button-row, nav.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1rem 0;
+  width: 100%;
+}
 /* Navigation and Like Buttons */
 .rekhta-nav-btn {
   border: none;
@@ -239,6 +248,21 @@ body {
   transition: transform 0.2s;
   margin-left: 0.5rem;
   vertical-align: middle;
+}
+.rekhta-report-link {
+  display: block;
+  text-align: center;
+  margin: 1.5rem auto 0 auto;
+  cursor: pointer;
+  color: #a67c52;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: color 0.2s;
+  width: fit-content;
+}
+.rekhta-report-link:hover {
+  color: #7c5b3e;
+  text-decoration: underline;
 }
 .rekhta-modal {
   position: fixed;
