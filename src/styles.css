@@ -1,402 +1,342 @@
 :root {
-    --bg: #fafafa;
-    --fg: #222;
-    --muted: #888;
-    --accent: #111;
-    --border: #e0e0e0;
-    --button-bg: #fff;
-    --button-fg: #222;
-    --button-hover: #f0f0f0;
-  }
-  
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Fira Code', 'Georgia', serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .landing-header {
-    max-width: 700px;
-    margin: 2.5rem auto 2.2rem auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.1rem;
-  }
-  
-  .landing-title {
-    font-family: 'Noto Serif Devanagari', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: #2d2d2d;
-    margin-bottom: 0.2rem;
-    line-height: 1.1;
-  }
-  
-  .landing-summary {
-    background: rgba(240,240,240,0.7);
-    color: #666;
-    font-size: 1.08rem;
-    font-family: 'Georgia', 'Fira Code', serif;
-    border-radius: 10px;
-    padding: 1.1rem 1.5rem;
-    margin: 0 auto;
-    max-width: 540px;
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
-    text-align: left;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 600px) {
-    .landing-header {
-      margin: 1.2rem 0 1.4rem 0;
-      gap: 0.7rem;
-    }
-    .landing-title {
-      font-size: 1.5rem;
-    }
-    .landing-summary {
-      font-size: 0.98rem;
-      padding: 0.8rem 0.7rem;
-      max-width: 98vw;
-      text-align: left;
-    }
-  }
+  --bg: #f8f5f0;
+  --fg: #312c24;
+  --muted: #8d6e63;
+  --accent: #e0c097;
+  --border: #e7dcc7;
+  --button-bg: #f4e6d7;
+  --button-hover: #fbeee0;
+  --shadow: 0 4px 24px 0 #e7dcc7;
+  --shadow-light: 0 1px 8px 0 #e7dcc7;
+}
 
-  .main-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem 0 1rem;
-  }
-  
-  .poetry-block {
-    background: #fff;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    max-width: 480px;
-    width: 100%;
-    margin: 1rem 0;
-    padding: 2rem 1.5rem 1rem 1.5rem;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
-  }
-  
-  .prompt {
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    word-break: break-word;
-    line-height: 1.4;
-  }
-  
-  .prompt-poet {
-    font-size: 0.95rem;
-    color: var(--muted);
-    text-align: right;
-    margin-bottom: 1.2rem;
-  }
-  
-  .extension {
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    word-break: break-word;
-    line-height: 1.5;
-  }
-  
-  .extension-author {
-    font-size: 0.95rem;
-    color: var(--muted);
-    text-align: right;
-    font-style: italic;
-    margin-bottom: 0.5rem;
-  }
-  
-  .rhyme-scheme-block {
-    background: #fafafa;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    max-width: 480px;
-    width: 100%;
-    margin: 0.7rem auto 1.5rem auto;
-    padding: 1.1rem 1.5rem;
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
-    text-align: center;
-  }
-  
-  .rhyme-scheme-title {
-    font-size: 1.08rem;
-    color: #888;
-    font-style: italic;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.01em;
-  }
-  
-  .rhyme-scheme-value {
-    color: #666;
-    font-size: 0.99rem;
-    font-style: normal;
-    white-space: pre-line;
-    text-align: center;
-    word-break: break-word;
-  }
-  
-  @media (max-width: 600px) {
-    .rhyme-scheme-block {
-      max-width: 98vw;
-      font-size: 0.93rem;
-      padding: 0.8rem 0.7rem;
-    }
-    .rhyme-scheme-title {
-      font-size: 1rem;
-    }
-    .rhyme-scheme-value {
-      font-size: 0.93rem;
-    }
-  }
+/* Base and Background */
+body {
+  background: var(--bg) url('https://www.transparenttextures.com/patterns/old-mathematics.png');
+  color: var(--fg);
+  font-family: 'Inter', 'Noto Serif Devanagari', serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  .user-extension-block {
-    background: #fafafa;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    max-width: 480px;
-    width: 100%;
-    margin: 0.7rem auto 1.5rem auto;
-    padding: 1.1rem 1.5rem;
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.03);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .user-extension-title {
-    font-size: 1.08rem;
-    color: #888;
-    font-style: italic;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.01em;
-  }
-  .user-extension-input {
-    width: 100%;
-    min-height: 3.5em;
-    font-size: 1rem;
-    padding: 0.7em;
-    border-radius: 7px;
-    border: 1px solid #d0d0d0;
-    margin-bottom: 0.7em;
-    resize: vertical;
-    font-family: inherit;
-    background: #fff;
-  }
-  .user-extension-submit {
-    background: #222;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.55em 1.2em;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 0.6em;
-    transition: background 0.2s;
-  }
-  .user-extension-submit:disabled {
-    background: #aaa;
-    cursor: not-allowed;
-  }
-  .user-extension-success {
-    color: #2a8a2a;
-    font-size: 0.97rem;
-    margin-top: 0.3em;
-  }
-  .user-extension-error {
-    color: #c00;
-    font-size: 0.97rem;
-    margin-top: 0.3em;
-  }
-  @media (max-width: 600px) {
-    .user-extension-block {
-      max-width: 98vw;
-      font-size: 0.93rem;
-      padding: 0.8rem 0.7rem;
-    }
-    .user-extension-title {
-      font-size: 1rem;
-    }
-    .user-extension-input {
-      font-size: 0.93rem;
-    }
-  }
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  .button-row {
-    display: flex;
-    justify-content: center;
-    gap: 1.1rem;
-    margin: 1.5rem 0 0.5rem 0;
-  }
-  
-  .btn {
-    background: var(--button-bg);
-    color: var(--button-fg);
-    border: 1.5px solid var(--border);
-    border-radius: 7px;
-    padding: 0.6rem 1.3rem;
-    font-size: 1rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.15s, border 0.15s;
-    outline: none;
-  }
-  
-  .btn:hover, .btn:focus {
-    background: var(--button-hover);
-    border-color: var(--muted);
-  }
-  
-  .donate-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 2.5rem 0 1.5rem 0;
-  }
-  
-  .donate-btn {
-    background: #fff;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-    border-radius: 8px;
-    padding: 0.7rem 2.2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    text-decoration: none;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
-  }
-  
-  .donate-btn:hover, .donate-btn:focus {
-    background: var(--accent);
-    color: #fff;
-  }
-  
-  .report-link {
-    display: block;
-    margin: 0.5rem auto 0 auto;
-    font-size: 0.88rem;
-    color: var(--muted);
-    text-align: center;
-    text-decoration: underline dotted;
-    cursor: pointer;
-    width: fit-content;
-  }
-  
-  .footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.97rem;
-    margin-bottom: 0.6rem;
-    margin-top: 0.7rem;
-  }
-  
-  @media (max-width: 600px) {
-    .main-container {
-      padding: 1rem 0.3rem 0 0.3rem;
-    }
-    .poetry-block {
-      padding: 1.1rem 0.7rem 0.7rem 0.7rem;
-      max-width: 98vw;
-    }
-    .button-row {
-      gap: 0.6rem;
-    }
-    .donate-container {
-      margin: 1.5rem 0 1rem 0;
-    }
-  }
+/* Header */
+.rekhta-header {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1.2s;
+}
+.rekhta-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: #6d4c41;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 2px 8px #e2d6c2;
+}
+.rekhta-tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #8d6e63;
+  opacity: 0.85;
+  animation: fadeIn 1.8s;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
 
-    /* Modal styles */
-.modal-overlay {
+/* Poetry Card */
+.rekhta-poetry-card {
+  background: rgba(255, 252, 244, 0.97);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  margin: 0 auto 2.5rem auto;
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  max-width: 600px;
+  transition: box-shadow 0.3s;
+  position: relative;
+  min-height: 320px;
+}
+.rekhta-matla {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.6rem;
+  color: #4e342e;
+  margin-bottom: 0.7rem;
+  white-space: pre-line;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+.rekhta-poet {
+  font-size: 1rem;
+  font-style: italic;
+  color: #a1887f;
+  margin-bottom: 1.4rem;
+  text-align: right;
+}
+.rekhta-extension {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.22rem;
+  margin-bottom: 0.5rem;
+  color: #3e2723;
+  padding-left: 0.7rem;
+  border-left: 2px solid #e0c097;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+.rekhta-extension-author {
+  font-size: 0.95rem;
+  color: #8d6e63;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  padding-left: 0.7rem;
+  text-align: right;
+}
+.rekhta-rhyme {
+  font-size: 0.95rem;
+  color: #b0a08b;
+  font-style: italic;
+  position: absolute;
+  bottom: 1.1rem;
+  right: 2rem;
+  opacity: 0.8;
+}
+
+/* Navigation and Like Buttons */
+.rekhta-nav-btn {
+  border: none;
+  border-radius: 16px;
+  background: var(--button-bg);
+  color: #6d4c41;
+  padding: 0.7rem 1.5rem;
+  margin: 0 0.6rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.rekhta-nav-btn:hover {
+  background: var(--button-hover);
+  box-shadow: 0 4px 16px #e7dcc7;
+}
+.rekhta-like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #e57373;
+  transition: transform 0.2s;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.rekhta-like-btn.liked {
+  color: #d32f2f;
+  transform: scale(1.2);
+  transition: color 0.2s, transform 0.2s;
+}
+
+/* Extension Submission */
+.rekhta-extension-form {
+  background: rgba(255,252,244,0.97);
+  border-radius: 14px;
+  box-shadow: var(--shadow-light);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.rekhta-extension-form textarea {
+  width: 100%;
+  min-height: 80px;
+  border: none;
+  border-radius: 10px;
+  background: #f7f1e3;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+  padding: 1rem;
+  resize: vertical;
+  outline: none;
+  box-shadow: 0 1px 4px #e7dcc7;
+  margin-bottom: 0.7rem;
+  transition: box-shadow 0.2s;
+}
+.rekhta-extension-form textarea:focus {
+  box-shadow: 0 2px 8px #e7dcc7;
+}
+.rekhta-submit-btn {
+  background: var(--accent);
+  color: #4e342e;
+  border: none;
+  border-radius: 14px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.05rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 0.5rem;
+}
+.rekhta-submit-btn:hover {
+  background: var(--button-hover);
+}
+.rekhta-success {
+  background: #e8f5e9;
+  color: #388e3c;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.rekhta-error {
+  background: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Report tough words */
+.rekhta-report-link {
+  color: #8d6e63;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.98rem;
+  margin-top: 1.2rem;
+  display: inline-block;
+}
+.rekhta-modal {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.18);
-  z-index: 1000;
+  background: rgba(244, 233, 215, 0.85);
+  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
 }
-
-.modal {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  min-width: 270px;
-  max-width: 90vw;
-  text-align: center;
-  position: relative;
+.rekhta-modal-content {
+  background: #fffaf3;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #e7dcc7;
+  padding: 2rem 2.5rem;
+  max-width: 400px;
+  width: 100%;
 }
-
-.modal-title {
+.rekhta-modal-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-family: 'Noto Serif Devanagari', serif;
 }
-
-.modal-input {
+.rekhta-modal-input {
   width: 100%;
   padding: 0.7rem 0.8rem;
-  border: 1.5px solid #eee;
-  border-radius: 6px;
+  border: none;
+  border-radius: 10px;
   margin-bottom: 1.1rem;
   font-size: 1rem;
-  font-family: inherit;
+  font-family: 'Noto Serif Devanagari', serif;
+  background: #f7f1e3;
+  box-shadow: 0 1px 4px #e7dcc7;
 }
-
-.modal-submit-btn, .modal-cancel-btn {
+.rekhta-modal-submit-btn, .rekhta-modal-cancel-btn {
   padding: 0.6rem 1.3rem;
-  border-radius: 7px;
-  border: 1.5px solid #e0e0e0;
-  background: #fafafa;
-  color: #222;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #4e342e;
   font-size: 1rem;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
   margin: 0 0.5rem;
   transition: background 0.13s;
 }
-
-.modal-submit-btn:disabled, .modal-cancel-btn:disabled {
+.rekhta-modal-submit-btn:disabled, .rekhta-modal-cancel-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-.modal-submit-btn:hover:not(:disabled) {
-  background: #e5e5e5;
+.rekhta-modal-submit-btn:hover:not(:disabled),
+.rekhta-modal-cancel-btn:hover:not(:disabled) {
+  background: var(--button-hover);
 }
-
-.modal-cancel-btn:hover:not(:disabled) {
-  background: #f5f5f5;
-}
-
-.modal-thankyou {
+.rekhta-modal-thankyou {
   font-size: 1.1rem;
-  color: #2a6;
+  color: #388e3c;
   padding: 1.2rem 0;
+  text-align: center;
+}
+
+/* Footer */
+.rekhta-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-family: 'Noto Serif Devanagari', serif;
+  color: #8d6e63;
+  font-size: 1.07rem;
+  padding-bottom: 1.8rem;
+}
+.rekhta-support-btn {
+  display: inline-block;
+  margin-top: 0.7rem;
+  background: var(--accent);
+  color: #4e342e;
+  border-radius: 14px;
+  padding: 0.45rem 1.2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.rekhta-support-btn:hover {
+  background: var(--button-hover);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rekhta-header { margin-top: 1.2rem; margin-bottom: 0.8rem; }
+  .rekhta-title { font-size: 1.7rem; }
+  .rekhta-tagline { font-size: 1rem; }
+  .rekhta-poetry-card, .rekhta-extension-form { max-width: 98vw; padding: 1.1rem 0.7rem 0.7rem 0.7rem; }
+  .rekhta-matla { font-size: 1.08rem; }
+  .rekhta-extension { font-size: 0.97rem; }
+  .rekhta-rhyme { font-size: 0.85rem; right: 1rem; }
+  .rekhta-extension-form textarea { font-size: 0.97rem; }
+  .rekhta-modal-content { padding: 1.2rem 0.7rem; }
+}
+
+/* Soft fade transitions for poetry card */
+.rekhta-fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.rekhta-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.rekhta-fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rekhta-fade-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
 }
