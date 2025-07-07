@@ -213,13 +213,32 @@ body {
 }
 
 /* Report tough words */
-.rekhta-report-link {
-  color: #8d6e63;
-  text-decoration: underline;
+.rekhta-nav-btn {
+  border: none;
+  border-radius: 16px;
+  background: var(--button-bg);
+  color: #6d4c41;
+  padding: 0.7rem 1.5rem;
+  margin: 0 0.6rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  font-size: 0.98rem;
-  margin-top: 1.2rem;
-  display: inline-block;
+  box-shadow: var(--shadow-light);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.rekhta-nav-btn:hover {
+  background: var(--button-hover);
+  box-shadow: 0 4px 16px #e7dcc7;
+}
+.rekhta-like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #e57373;
+  transition: transform 0.2s;
+  margin-left: 0.5rem;
+  vertical-align: middle;
 }
 .rekhta-modal {
   position: fixed;
