@@ -39,6 +39,10 @@ function App() {
       complete: (results) => {
         setEntries(results.data);
         setLoading(false);
+        if (results.data && results.data.length > 0) {
+          const randomIdx = Math.floor(Math.random() * results.data.length);
+          setIndex(randomIdx);
+        }
       },
       error: () => {
         setError("Could not load poetry data.");
