@@ -69,6 +69,7 @@ body {
   transition: box-shadow 0.3s;
   position: relative;
   min-height: 320px;
+  box-sizing: border-box;
 }
 .rekhta-matla {
   font-family: 'Noto Serif Devanagari', serif;
@@ -76,7 +77,7 @@ body {
   color: #4e342e;
   margin-bottom: 0.7rem;
   white-space: pre-line;
-  line-height: 1.6;
+  line-height: 1.7;
   letter-spacing: 1px;
 }
 .rekhta-poet {
@@ -94,7 +95,7 @@ body {
   padding-left: 0.7rem;
   border-left: 2px solid #e0c097;
   white-space: pre-line;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 .rekhta-extension-author {
   font-size: 0.95rem;
@@ -122,6 +123,7 @@ body {
   gap: 1rem;
   margin: 2rem 0 1rem 0;
   width: 100%;
+  box-sizing: border-box;
 }
 /* Navigation and Like Buttons */
 .rekhta-nav-btn {
@@ -150,6 +152,8 @@ body {
   transition: transform 0.2s;
   margin-left: 0.5rem;
   vertical-align: middle;
+  border-radius: 16px;
+  padding: 0.2rem 0.7rem;
 }
 .rekhta-like-btn.liked {
   color: #d32f2f;
@@ -168,6 +172,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  box-sizing: border-box;
 }
 .rekhta-extension-form textarea {
   width: 100%;
@@ -183,6 +188,7 @@ body {
   box-shadow: 0 1px 4px #e7dcc7;
   margin-bottom: 0.7rem;
   transition: box-shadow 0.2s;
+  margin-top: 0.2rem;
 }
 .rekhta-extension-form textarea:focus {
   box-shadow: 0 2px 8px #e7dcc7;
@@ -198,6 +204,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
   margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
 }
 .rekhta-submit-btn:hover {
   background: var(--button-hover);
@@ -222,33 +229,6 @@ body {
 }
 
 /* Report tough words */
-.rekhta-nav-btn {
-  border: none;
-  border-radius: 16px;
-  background: var(--button-bg);
-  color: #6d4c41;
-  padding: 0.7rem 1.5rem;
-  margin: 0 0.6rem;
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-  box-shadow: var(--shadow-light);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.rekhta-nav-btn:hover {
-  background: var(--button-hover);
-  box-shadow: 0 4px 16px #e7dcc7;
-}
-.rekhta-like-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  color: #e57373;
-  transition: transform 0.2s;
-  margin-left: 0.5rem;
-  vertical-align: middle;
-}
 .rekhta-report-link {
   display: block;
   text-align: center;
@@ -282,6 +262,7 @@ body {
   padding: 2rem 2.5rem;
   max-width: 400px;
   width: 100%;
+  box-sizing: border-box;
 }
 .rekhta-modal-title {
   font-size: 1.2rem;
@@ -299,6 +280,7 @@ body {
   font-family: 'Noto Serif Devanagari', serif;
   background: #f7f1e3;
   box-shadow: 0 1px 4px #e7dcc7;
+  box-sizing: border-box;
 }
 .rekhta-modal-submit-btn, .rekhta-modal-cancel-btn {
   padding: 0.6rem 1.3rem;
@@ -353,15 +335,124 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
-  .rekhta-header { margin-top: 1.2rem; margin-bottom: 0.8rem; }
-  .rekhta-title { font-size: 1.7rem; }
-  .rekhta-tagline { font-size: 1rem; }
-  .rekhta-poetry-card, .rekhta-extension-form { max-width: 98vw; padding: 1.1rem 0.7rem 0.7rem 0.7rem; }
-  .rekhta-matla { font-size: 1.08rem; }
-  .rekhta-extension { font-size: 0.97rem; }
-  .rekhta-rhyme { font-size: 0.85rem; right: 1rem; }
-  .rekhta-extension-form textarea { font-size: 0.97rem; }
-  .rekhta-modal-content { padding: 1.2rem 0.7rem; }
+  body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .main-container {
+    max-width: 100vw;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .rekhta-header {
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .rekhta-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  .rekhta-tagline {
+    font-size: 0.97rem;
+  }
+  .rekhta-poetry-card, .rekhta-extension-form {
+    max-width: 98vw;
+    padding: 1.1rem 0.7rem 0.7rem 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+  .rekhta-matla, .rekhta-extension {
+    font-size: 0.97rem;
+    line-height: 1.7;
+    word-break: break-word;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+  .rekhta-poet, .rekhta-extension-author, .rekhta-rhyme {
+    font-size: 0.85rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  .rekhta-extension-form textarea {
+    font-size: 0.97rem;
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
+    margin-top: 0.2rem;
+    padding: 0.7rem;
+  }
+  .rekhta-submit-btn {
+    font-size: 0.97rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    padding: 0.5rem 1rem;
+  }
+  .rekhta-footer {
+    font-size: 0.97rem;
+    padding-bottom: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .rekhta-support-btn {
+    font-size: 0.95rem;
+    border-radius: 10px;
+    padding: 0.35rem 0.9rem;
+    margin-top: 0.5rem;
+  }
+  .button-row, nav.button-row {
+    gap: 0.5rem;
+    margin: 1.2rem 0 0.7rem 0;
+  }
+  .rekhta-nav-btn, .rekhta-like-btn {
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+  }
+  .rekhta-modal-content {
+    padding: 1.2rem 0.7rem;
+    border-radius: 12px;
+    max-width: 95vw;
+  }
+  .rekhta-modal-title {
+    font-size: 1rem;
+  }
+  .rekhta-modal-input {
+    font-size: 0.97rem;
+    border-radius: 8px;
+    padding: 0.5rem 0.6rem;
+  }
+  .rekhta-modal-submit-btn, .rekhta-modal-cancel-btn {
+    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    margin: 0 0.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .main-container {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .rekhta-title {
+    font-size: 1.08rem;
+  }
+  .rekhta-matla, .rekhta-extension {
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+  .rekhta-poet, .rekhta-extension-author, .rekhta-rhyme {
+    font-size: 0.75rem;
+  }
 }
 
 /* Soft fade transitions for poetry card */
